@@ -7,18 +7,19 @@ LABEL maintainer="rgon"
 ENV TITLE="KEME Contabilidad"
 ENV KEME_VERSION="4.0.1.0"
 
-# Install x-air
-RUN mkdir -p /bin/keme && \
-    curl https://master.dl.sourceforge.net/project/keme/KEME-Contabilidad/${KEME_VERSION}/KemeAppInstaller_${KEME_VERSION}R.run?viasf=1 --output /bin/keme/keme.run && \
-    chmod +x /bin/keme/keme.run
+# Install dependencies
+RUN apt-get update && apt-get install -y expect libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0
 
-RUN apt-get update && apt-get install -y libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0
+# Install keme
+RUN mkdir -p /bin/keme && \
+    curl https://master.dl.sourceforge.net/project/keme/KEME-Contabilidad/${KEME_VERSION}/KemeAppInstaller_${KEME_VERSION}R.run?viasf=1 --output /tmp/keme.run && \
+    chmod +x /tmp/keme.run
 
 # Run QT Installer Framework in CLI mode
-RUN /bin/keme/keme.run in
+RUN unbuffer expect -c 'spawn /tmp/keme.run in; expect "Accept|Reject|Show"; send "Accept\r"; expect "Yes|No"; send "Yes\r"; interact'
 
 # add start command
-COPY ./root /
+# COPY ./root /
 
 # ports and volumes
 EXPOSE 3000
