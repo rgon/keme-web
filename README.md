@@ -2,6 +2,13 @@ Esta imagen ejecuta [Keme Contabilidad](https://keme.sourceforge.io/) en un cont
 
 ![](doc/image.png)
 
+# Uso
+En Linux, con Docker y Docker Compose instalados.
+```
+./run.sh
+```
+Y abrir en un navegador web la URL [`http://localhost:3018/`](http://localhost:3018/)
+
 # License
 Este es software libre y sin compromiso publicado en el dominio público.
 
