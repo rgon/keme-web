@@ -1,0 +1,10 @@
+version: '3'
+services:
+  keme:
+    build: .
+    ports:
+      - "3018:3000"
+    volumes:
+      - "/docker/appdata/keme:/config:rw"
+    # environment:
+    #   CLI_ARGS: ...
