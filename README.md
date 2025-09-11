@@ -9,6 +9,11 @@ En Linux, con Docker y Docker Compose instalados.
 ```
 Y abrir en un navegador web la URL [`http://localhost:3018/`](http://localhost:3018/)
 
+# TODO:
++ [x] Run interactive installer headless
++ [x] Run QT Gui on kasmvnc for web browser
++ [ ] Use external sql server from `docker-compose`, connect from keme
+
 # License
 Este es software libre y sin compromiso publicado en el dominio público.
 
