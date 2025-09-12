@@ -10,6 +10,9 @@ ENV KEME_VERSION="4.0.1.0"
 # Install dependencies
 RUN apt-get update && apt-get install -y expect libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0
 
+# Optional installs
+RUN apt-get update && apt-get install -y texlive-latex-base
+
 # Install keme
 RUN mkdir -p /bin/keme && \
     curl https://master.dl.sourceforge.net/project/keme/KEME-Contabilidad/${KEME_VERSION}/KemeAppInstaller_${KEME_VERSION}R.run?viasf=1 --output /tmp/keme.run && \
