@@ -1,4 +1,24 @@
 services:
+  # postgres:
+  #   image: postgres:18-alpine
+  #   container_name: postgres
+  #   environment:
+  #     POSTGRES_USER: keme
+  #     POSTGRES_PASSWORD: keme
+  #     POSTGRES_DB: keme
+  #   volumes:
+  #     - "/docker/appdata/postgres:/var/lib/postgresql/data:rw"
+  #   ports:
+  #     - "5432:5432"
+  #   restart: unless-stopped
+  #   # networks:
+  #   #   - keme-net
+
+  # pgadmin:
+  #   image: dpage/pgadmin4:latest
+  #   container_name: pgadmin
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL:
   keme:
     build: .
     ports:
@@ -6,5 +26,9 @@ services:
     volumes:
       - "/docker/appdata/keme:/config:rw"
       - "./openbox:/config/.config/openbox/:rw"
+    # depends_on:
+    #   - postgres
+    container_name: keme
+    restart: unless-stopped
     # environment:
     #   CLI_ARGS: ...
