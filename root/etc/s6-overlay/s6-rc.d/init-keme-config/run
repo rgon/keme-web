@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+
+if [[ ! -d /config/.keme ]]; then
+  mkdir -p /config/.keme
+fi
+if [[ ! -d /config/keme ]]; then
+  mkdir -p /config/keme
+fi
+
+chown -R abc:abc /config/.keme /config/keme
+chmod -R u+w /config/.keme /config/keme

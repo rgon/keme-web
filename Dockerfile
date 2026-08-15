@@ -22,8 +22,8 @@ RUN mkdir -p /bin/keme && \
 #RUN unbuffer expect -c 'spawn /tmp/keme.run in; expect "Accept|Reject|Show"; send "Accept\r"; expect "Yes|No"; send "Yes\r"; interact'
 RUN apt-get -y install /tmp/keme.deb
 
-# add start command
-# COPY ./root /
+# add init scripts for keme data directory permissions
+COPY ./root /
 
 # ports and volumes
 EXPOSE 3000
