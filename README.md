@@ -12,7 +12,13 @@ Y abrir en un navegador web la URL [`http://localhost:3018/`](http://localhost:3
 # TODO:
 + [x] Run interactive installer headless
 + [x] Run QT Gui on kasmvnc for web browser
-+ [ ] Use external sql server from `docker-compose`, connect from keme
++ [ ] Use external sql server from `docker-compose`, connect from keme:
+    + [x] add psql
+    + [ ] configure keme https://dibosajm.github.io/ch07.html
++ [ ] multiple users, permissions:
+    + [ ] linux users
+    + [ ] keme users
+    + [ ] different ports for remote access
 
 # License
 Este es software libre y sin compromiso publicado en el dominio público.
