@@ -30,5 +30,5 @@ services:
     #   - postgres
     container_name: keme
     restart: unless-stopped
-    # environment:
-    #   CLI_ARGS: ...
+    environment:
+      - NO_FULL=true
