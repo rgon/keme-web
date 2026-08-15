@@ -15,11 +15,12 @@ RUN apt-get update && apt-get install -y texlive-latex-base
 
 # Install keme
 RUN mkdir -p /bin/keme && \
-    curl https://master.dl.sourceforge.net/project/keme/KEME-Contabilidad/${KEME_VERSION}/KemeAppInstaller_${KEME_VERSION}R.run?viasf=1 --output /tmp/keme.run && \
-    chmod +x /tmp/keme.run
+    curl -L https://master.dl.sourceforge.net/project/keme/KEME-Contabilidad/${KEME_VERSION}/keme_${KEME_VERSION}_Ubuntu22.04.deb --output /tmp/keme.run && \
+    chmod +x /tmp/keme.deb
 
 # Run QT Installer Framework in CLI mode
-RUN unbuffer expect -c 'spawn /tmp/keme.run in; expect "Accept|Reject|Show"; send "Accept\r"; expect "Yes|No"; send "Yes\r"; interact'
+#RUN unbuffer expect -c 'spawn /tmp/keme.run in; expect "Accept|Reject|Show"; send "Accept\r"; expect "Yes|No"; send "Yes\r"; interact'
+RUN apt-get -y install /tmp/keme.deb
 
 # add start command
 # COPY ./root /
