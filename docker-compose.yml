@@ -32,3 +32,4 @@ services:
     restart: unless-stopped
     environment:
       - NO_FULL=true
+      - LC_ALL=es_ES.UTF-8
